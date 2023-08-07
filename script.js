@@ -1,4 +1,37 @@
 /* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
+const button = document.querySelector('.forecast-btn');
+const currentForecast = document.querySelector('.current-forecast');
+const forecastItem = document.querySelector('#forecast-item');
+const forecastsList = document.querySelector('.forecasts');
+
+function generateRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+button.onclick = function() {
+  const predictions = [
+    'Тебя ждут приятные сюрпризы!',
+    'Ты скоро поедешь на море!',
+    'Ты встретишь красивый закат!',
+    'Встретишься со старым другом!',
+    'Получишь крутой оффер!'
+  ];
+  
+  const predictionIndex = generateRandomInt(0, predictions.length - 1);
+  const prediction = predictions[predictionIndex];
+  const probability = generateRandomInt(0, 100);
+  
+  const newForecastItem = forecastItem.content.cloneNode(true);
+  newForecastItem.querySelector('h3').textContent = prediction;
+  newForecastItem.querySelector('p').textContent = ` Вероятность: ${probability}% `;
+  
+  forecastsList.appendChild(newForecastItem);
+  
+  currentForecast.querySelector('h1').textContent = prediction;
+  currentForecast.querySelector('p').textContent = ` Вероятность: ${probability}% `;
+}
+
+
 
 /* Заранее заготовь 3-5 предсказаний и в зависимости от того, как лягут карты судьбы (или что скажет Math.random) показывай их пользователю */
 
