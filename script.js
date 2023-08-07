@@ -1,4 +1,21 @@
 /* Генерация предсказания должна происходить при клике на кнопку «предсказать судьбу» */
+const button = document.querySelector('.forest-btn');
+const currentForecast = document.querySelector('.current-forecast');
+const forecastItem = document.querySelector('#forecast-item');
+
+button.onclick = function() {
+    function getRandomInt() {
+        return Math.random() * 5;
+    }
+    
+}
+
+
+//console.log(getRandomInt('Тебя ждут приятные сюрпризы!'));
+//console.log('Ты скоро поедешь на море!');
+//console.log('Ты встретишь красивый закат!');
+//console.log('Встретишься со старым другом!');
+//console.log('Получишь крутой оффер!');
 
 /* Заранее заготовь 3-5 предсказаний и в зависимости от того, как лягут карты судьбы (или что скажет Math.random) показывай их пользователю */
 
